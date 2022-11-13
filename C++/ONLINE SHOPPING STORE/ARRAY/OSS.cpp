@@ -45,16 +45,13 @@ itemCount = 0;
 int main()
 {
 	const int size = 500;
-
 	// All Data Structure of User
-
 	string userNames[size];
 	string passWords[size];
 	string roles[size];
 	string userName, passWord, role;
 
 	// Data Structure of all Items
-
 	string allItems[size];
 	float itemPrices[size];
 	int itemDiscounts[size];
@@ -64,18 +61,16 @@ int main()
 	int option = 1;
 
 	// Arrays for Sorting
-
 	string allItemsSorted[size];
 	float priceSorted[size];
 	int discountSorted[size];
 	int quantitySorted[size];
-	// Loading Data
 
+	// Loading Data
 	loadDataofUser(userNames, passWords, roles);
 	loadDataofItems(allItems, itemPrices, itemDiscounts, quantity);
 
 	// Sign In
-
 	while (signOut != true)
 	{
 		while (option > 0 && option < 3)
@@ -85,7 +80,6 @@ int main()
 			Header();
 			menu("Main Menu");
 			option = mainMenu();
-
 			if (option == 1)
 			{
 				while (valid != false)
@@ -106,7 +100,6 @@ int main()
 							valid = false;
 						}
 					}
-
 					else
 					{
 						if (role == "Admin")
@@ -127,7 +120,6 @@ int main()
 									}
 									xit();
 								}
-
 								else if (option == 2)
 								{
 									menu("Search a User");
@@ -135,14 +127,12 @@ int main()
 									PrintUser(index, userNames, passWords, roles);
 									xit();
 								}
-
 								else if (option == 3)
 								{
 									menu("List of Users");
 									view_all_user(userNames, passWords, roles, userCount);
 									xit();
 								}
-
 								else if (option == 4)
 								{
 									menu("Add an Item");
@@ -153,7 +143,6 @@ int main()
 									}
 									xit();
 								}
-
 								else if (option == 5)
 								{
 									menu("Search an Item");
@@ -162,7 +151,6 @@ int main()
 									PrintItem(index, allItems, itemPrices, itemDiscounts, quantity);
 									xit();
 								}
-
 								else if (option == 6)
 								{
 									menu("Update Price");
@@ -179,7 +167,6 @@ int main()
 									}
 									xit();
 								}
-
 								else if (option == 7)
 								{
 									menu("Delete Item");
@@ -193,10 +180,8 @@ int main()
 										itemDiscounts[index] = 0;
 										cout << "Item Deleted Successfully...";
 									}
-
 									xit();
 								}
-
 								else if (option == 8)
 								{
 									menu("Add OR Change Discount");
@@ -212,7 +197,6 @@ int main()
 									}
 									xit();
 								}
-
 								else if (option == 9)
 								{
 									menu("List of Items");
@@ -222,7 +206,6 @@ int main()
 									int choice;
 									cout << "Select Option.....";
 									cin >> choice;
-
 									Header();
 									if (choice == 1)
 									{
@@ -234,7 +217,6 @@ int main()
 											PrintItem(i, allItemsSorted, priceSorted, discountSorted, quantitySorted);
 										}
 									}
-
 									else if (choice == 2)
 									{
 										menu("All Items in Ascending Order of Price");
@@ -245,7 +227,6 @@ int main()
 											PrintItem(i, allItemsSorted, priceSorted, discountSorted, quantitySorted);
 										}
 									}
-
 									else if (choice == 3)
 									{
 										menu("All Items with Discount");
@@ -261,7 +242,6 @@ int main()
 									}
 									xit();
 								}
-
 								else if (option == 10)
 								{
 									xit();
@@ -270,8 +250,7 @@ int main()
 									break;
 								}
 
-								// Storing Data
-
+								// Sorted Data
 								for (int i = 0; i < itemCount; i++)
 								{
 									allItemsSorted[i] = allItems[i];
@@ -279,7 +258,6 @@ int main()
 									discountSorted[i] = itemDiscounts[i];
 									quantitySorted[i] = quantity[i];
 								}
-
 								storeDataofUser(userNames, passWords, roles);
 								storeDataofItems(allItems, itemPrices, itemDiscounts, quantity);
 							}
@@ -291,14 +269,12 @@ int main()
 							int buyCount = 0;
 							int indexofBuyedItems[size];
 							int quantityofBuyedItems[size];
-
 							while (option > 0 && option < 7)
 							{
 								Header();
 								menu("Menu");
 								option = customerMenu();
 								Header();
-
 								if (option == 1)
 								{
 									menu("All Items in Alphabatical Order");
@@ -310,7 +286,6 @@ int main()
 									}
 									xit();
 								}
-
 								else if (option == 2)
 								{
 									menu("All Items in Ascending Order of Price");
@@ -322,7 +297,6 @@ int main()
 									}
 									xit();
 								}
-
 								else if (option == 3)
 								{
 									menu("All Items with Discount");
@@ -337,7 +311,6 @@ int main()
 									}
 									xit();
 								}
-
 								else if (option == 4)
 								{
 									menu("Search an Item");
@@ -346,7 +319,6 @@ int main()
 									PrintItem(index, allItems, itemPrices, itemDiscounts, quantity);
 									xit();
 								}
-
 								else if (option == 5)
 								{
 									menu("Buy an Item");
@@ -364,7 +336,6 @@ int main()
 											iee = i;
 										}
 									}
-
 									if (index > -1)
 									{
 										cout << "How many * " + allItems[index] + " * do you want to buy(not zer0)";
@@ -383,7 +354,6 @@ int main()
 												quantityofBuyedItems[buyCount] == 0;
 											}
 										}
-
 										else if (quantityofBuyedItems[buyCount] > quantity[index])
 										{
 											cout << "Wrong Quantity...........You can buy less than or equal to...." << quantity[index] << "." << endl;
@@ -396,7 +366,6 @@ int main()
 									}
 									xit();
 								}
-
 								else if (option == 6)
 								{
 									menu("Bill");
@@ -413,7 +382,6 @@ int main()
 									cout << "\nThank You for Visiting Usman Shopping Store..............................." << endl;
 									xit();
 								}
-
 								else if (option == 7)
 								{
 									system("cls");
@@ -439,7 +407,6 @@ int main()
 							int orderCount = 0;
 							int indexofOrderedItems[size];
 							int QuantityofOrderedItems[size];
-
 							while (option > 0 && option < 5)
 							{
 								Header();
@@ -459,7 +426,6 @@ int main()
 									}
 									xit();
 								}
-
 								else if (option == 2)
 								{
 									menu("Order Stock");
@@ -477,8 +443,7 @@ int main()
 											indexinarr = indexofOrderedItems[i];
 											iee = i;
 										}
-									}
-									
+									}	
 									if (index > -1)
 									{
 										cout << "How many * " + allItems[index] + " * do you want to buy(not zer0)";
@@ -497,7 +462,6 @@ int main()
 												QuantityofOrderedItems[orderCount] == 0;
 											}
 										}
-
 										else if (QuantityofOrderedItems[orderCount] > quantity[index])
 										{
 											cout << "Wrong Quantity...........You can buy less than or equal to...." << quantity[index] << "." << endl;
@@ -510,18 +474,14 @@ int main()
 									}
 									xit();
 								}
-								
 								else if (option == 3)
 								{
 									menu("Add Stock");
-									cout << "Item Name"
-										 << "\t"
-										 << "Item Stock~`Order`"<<endl;
+									cout << "Item Name"<< "\t" << "Item Stock~`Order`"<<endl;
 									for (int i = 0; i < orderCount; i++)
 									{
 										cout <<i+1<<"-   "<< allItems[indexofOrderedItems[i]] << "\t" << QuantityofOrderedItems[i] << endl;
 									}
-
 									if (orderCount != 0)
 									{
 										int choice = -1;
@@ -536,7 +496,6 @@ int main()
 									}
 									xit();
 								}
-
 								else if (option == 4)
 								{
 									system("cls");
@@ -544,14 +503,12 @@ int main()
 									option = 1;
 									break;
 								}
-
 								storeDataofItems(allItems, itemPrices, itemDiscounts, quantity);
 							}
 						}
 					}
 				}
 			}
-
 			else if (option == 2)
 			{
 				system("cls");
@@ -567,9 +524,7 @@ int main()
 
 // FUNCTIONS IMPLEMENTATION
 
-
-// LOAD DATA OF USER
-
+// LOAD DATA OF USERS
 bool loadDataofUser(string userNames[], string passWords[], string roles[])
 {
 	fstream file;
@@ -579,7 +534,6 @@ bool loadDataofUser(string userNames[], string passWords[], string roles[])
 	{
 		return false;
 	}
-
 	else
 	{
 		for (userCount = 0; !file.eof(); userCount++)
@@ -601,9 +555,7 @@ bool loadDataofUser(string userNames[], string passWords[], string roles[])
 	}
 }
 
-
 // LOAD DATA OF ITEM
-
 bool loadDataofItems(string allItems[], float itemPrices[], int itemDiscounts[], int quantity[])
 {
 	fstream file;
@@ -613,7 +565,6 @@ bool loadDataofItems(string allItems[], float itemPrices[], int itemDiscounts[],
 	{
 		return false;
 	}
-
 	else
 	{
 		for (itemCount = 0; !file.eof(); itemCount++)
@@ -638,7 +589,6 @@ bool loadDataofItems(string allItems[], float itemPrices[], int itemDiscounts[],
 }
 
 // SEPARATE COMMA
-
 string DataSepraterUsingComma(string Record, int Field)
 {
 	int Comma = 1;
@@ -658,7 +608,6 @@ string DataSepraterUsingComma(string Record, int Field)
 }
 
 // STORE DATA OF USER
-
 bool storeDataofUser(string userNames[], string passWords[], string roles[])
 {
 	fstream file;
@@ -668,7 +617,6 @@ bool storeDataofUser(string userNames[], string passWords[], string roles[])
 	{
 		return false;
 	}
-
 	else
 	{
 		for (int i = 0; i < userCount - 1; i++)
@@ -682,7 +630,6 @@ bool storeDataofUser(string userNames[], string passWords[], string roles[])
 }
 
 // STORE DATA OF ITEM
-
 bool storeDataofItems(string allItems[], float itemPrices[], int itemDiscounts[], int quantity[])
 {
 	fstream file;
@@ -692,7 +639,6 @@ bool storeDataofItems(string allItems[], float itemPrices[], int itemDiscounts[]
 	{
 		return false;
 	}
-
 	else
 	{
 		for (int i = 0; i < itemCount - 1; i++)
@@ -706,7 +652,6 @@ bool storeDataofItems(string allItems[], float itemPrices[], int itemDiscounts[]
 }
 
 // VALID USER
-
 bool isUserValid(string userNames[], string passWords[], string roles[], string userName, string passWord, string role)
 {
 	for (int i = 0; i < userCount; i++)
@@ -719,8 +664,7 @@ bool isUserValid(string userNames[], string passWords[], string roles[], string 
 	return false;
 }
 
-// WRONG
-
+// WRONG VALIDATION
 bool wrong()
 {
 	bool valid;
@@ -731,7 +675,6 @@ bool wrong()
 }
 
 // HEADER
-
 void Header()
 {
 	system("cls");
@@ -743,7 +686,6 @@ void Header()
 }
 
 // MENU
-
 void menu(string title)
 {
 	cout << "\n-------------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
@@ -752,7 +694,6 @@ void menu(string title)
 }
 
 // MAIN MENU
-
 int mainMenu()
 {
 	int mainMenu;
@@ -764,7 +705,6 @@ int mainMenu()
 }
 
 // ADMIN MENU
-
 int adminMenu()
 {
 	int menu;
@@ -786,7 +726,6 @@ int adminMenu()
 }
 
 // ADD USER
-
 bool AddaUser(string userNames[], string passWords[], string roles[])
 {
 	int role = 0;
@@ -819,7 +758,6 @@ bool AddaUser(string userNames[], string passWords[], string roles[])
 }
 
 // ROLE ASSIGNMEENT
-
 string roleAssign()
 {
 	int value;
@@ -831,27 +769,22 @@ string roleAssign()
 		cout << "Enter the Role\nPress\n 1- for Admin \n 2- for Customer\n 3- for Stock Manager\nYour choice is....";
 		cin >> value;
 	}
-
 	if (value == 1)
 	{
 		role = "Admin";
 	}
-
 	else if (value == 2)
 	{
 		role = "Customer";
 	}
-
 	else if (value == 3)
 	{
 		role = "Stock Manager";
 	}
-
 	return role;
 }
 
 // EXIT
-
 void xit()
 {
 	int null;
@@ -860,17 +793,14 @@ void xit()
 }
 
 // TEMPLATE USER
-
 void TemplateUser()
 {
 	cout << "Role\t\t~~UserName~~\n\n";
 }
 
 // PRINT USER
-
 void PrintUser(int index, string userNames[], string passWords[], string roles[])
 {
-
 	if (index < 0)
 	{
 		cout << "No\tRcord\tFound" << endl;
@@ -881,9 +811,7 @@ void PrintUser(int index, string userNames[], string passWords[], string roles[]
 	}
 }
 
-
 // SEARCH USER
-
 int SearchaUser(string userNames[], string passWords[], string roles[])
 {
 	int choice = 0;
@@ -903,7 +831,6 @@ int SearchaUser(string userNames[], string passWords[], string roles[])
 }
 
 // AND AN ITEM
-
 bool AddanItem(string allItems[], float itemPrices[], int itemDiscounts[], int quantities[])
 {
 	bool flag = false;
@@ -942,14 +869,12 @@ bool AddanItem(string allItems[], float itemPrices[], int itemDiscounts[], int q
 }
 
 // TEMPLATE ITEM
-
 void TemplateItem()
 {
 	cout << "Item Name\t\t~~Item Price~~\t\tQuantity\t\tDiscounts\n\n";
 }
 
 // PRINT ITEM
-
 void PrintItem(int index, string allItems[], float allPrices[], int discount[], int quantities[])
 {
 
@@ -964,7 +889,6 @@ void PrintItem(int index, string allItems[], float allPrices[], int discount[], 
 }
 
 // SEARCH AN ITEM
-
 int SearchanItem(string allItems[])
 {
 	string searchstring;
@@ -982,7 +906,6 @@ int SearchanItem(string allItems[])
 }
 
 // STRING STORING
-
 void StringSorting(int count, string arr[], float floatarr[], int intarr[], int quantities[])
 {
  
@@ -1025,8 +948,7 @@ void StringSorting(int count, string arr[], float floatarr[], int intarr[], int 
 	}
 }
 
-// FLOAT STRING
-
+// FLOAT STRING STORING
 void floatSorting(int count, string arr[], float floatarr[], int intarr[], int quantities[])
 {
 	for (int i = 0; i < count; i++)
@@ -1047,7 +969,6 @@ void floatSorting(int count, string arr[], float floatarr[], int intarr[], int q
 }
 
 // SWAP DATA
-
 void SwapData(int indexi, int indexj, string arr1[], float arr2[], int arr3[], int quantities[])
 {
 	string tempstring;
@@ -1071,7 +992,6 @@ void SwapData(int indexi, int indexj, string arr1[], float arr2[], int arr3[], i
 }
 
 // CUSTOMER MENU
-
 int customerMenu()
 {
 	int menu;
@@ -1088,7 +1008,6 @@ int customerMenu()
 }
 
 // PRICE DISCOUNT
-
 float priceAfterDiscount(float price, int discount)
 {
 	float newPrice = price - (price * (discount / 100.0));
@@ -1096,14 +1015,9 @@ float priceAfterDiscount(float price, int discount)
 }
 
 // VIEW ALL USER
-
 void view_all_user(string name[], string password[], string role[], int count)
 {
-	cout << "Name "
-		 << "\t\t"
-		 << "Password "
-		 << "\t\t"
-		 << "Role " << endl;
+	cout << "Name " << "\t\t" << "Password " << "\t\t" << "Role " << endl;
 	for (int i = 0; i < count; i++)
 	{
 		cout << name[i] << "\t\t " << password[i] << "\t\t " << role[i] << endl;
@@ -1111,7 +1025,6 @@ void view_all_user(string name[], string password[], string role[], int count)
 }
 
 // STOCK MANAGER MENU
-
 int stockManagerMenu()
 {
 	int menu;

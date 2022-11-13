@@ -1,0 +1,3 @@
+Admin,Usman,12345
+Customer,Usman1,123
+Stock Manager,Usman12,1234
